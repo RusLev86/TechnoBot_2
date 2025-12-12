@@ -1,3 +1,2 @@
 maxapi
-telebot
 python-dotenv
