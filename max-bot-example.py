@@ -1,15 +1,3 @@
-import telebot
-
-# Вставьте свой токен
-TOKEN = ''
-bot = telebot.TeleBot(TOKEN)
-
-# Удаляем вебхук
-bot.remove_webhook()
-
-# Запускаем опрос
-bot.polling(none_stop=True)
-
 import asyncio
 import logging
 
@@ -21,6 +9,11 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot()
 dp = Dispatcher()
 
+# Удаляем вебхук
+bot.remove_webhook()
+
+# Запускаем опрос
+bot.polling(none_stop=True)
 
 @dp.message_created(F.message.body.text)
 async def echo(event: MessageCreated):
