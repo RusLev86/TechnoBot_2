@@ -15,7 +15,7 @@ async def echo(event: MessageCreated):
 
 
 async def main():
-    await bot.delete_webhook()
+    # await bot.delete_webhook()
     await dp.start_polling(bot)
 
 
