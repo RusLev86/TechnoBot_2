@@ -9,18 +9,13 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot()
 dp = Dispatcher()
 
-# Удаляем вебхук
-bot.remove_webhook()
-
-# Запускаем опрос
-bot.polling(none_stop=True)
-
 @dp.message_created(F.message.body.text)
 async def echo(event: MessageCreated):
     await event.message.answer(f"Повторяю за вами: {event.message.body.text}")
 
 
 async def main():
+    await bot.delete_webhook()
     await dp.start_polling(bot)
 
 
